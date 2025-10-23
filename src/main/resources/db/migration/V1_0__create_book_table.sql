@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS book (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    publisher VARCHAR(100) NOT NULL,
+    release_date DATE NOT NULL,
+    genre VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    synopsis TEXT NOT NULL
+);
