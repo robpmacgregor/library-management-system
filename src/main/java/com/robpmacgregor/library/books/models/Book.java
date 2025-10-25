@@ -6,12 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 @Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     private String title;
     private String author;
     private String publisher;
@@ -36,11 +37,11 @@ public class Book {
         this.title = title;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -98,5 +99,20 @@ public class Book {
 
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
+    }
+
+    public static Book createFromParams(Map<String, String> params) {
+        Book book = new Book();
+
+        if (params.containsKey("category")) {
+            book.setCategory(params.get("category"));
+        }
+        if (params.containsKey("genre")) {
+            book.setGenre(params.get("genre"));
+        }
+        if (params.containsKey("publisher")) {
+            book.setPublisher(params.get("publisher"));
+        }
+        return book;
     }
 }
