@@ -28,13 +28,13 @@ public class BookIT {
     private TestRestTemplate restTemplate;
 
     @Test
-    void testGettestGetBookReturns200IfFound() {
+    void testGetBookReturns200IfFound() {
         ResponseEntity<Book> response = this.restTemplate.getForEntity("/api/book/1", Book.class);
 
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
     }
     @Test
-    void testGettestGetBookReturns404IfNotFound() {
+    void testGetBookReturns404IfNotFound() {
         ResponseEntity<String> response = this.restTemplate.getForEntity("/api/book/0", String.class);
 
         assertThat(response.getStatusCode(), equalTo(HttpStatus.NOT_FOUND));

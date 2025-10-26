@@ -33,6 +33,4 @@ public class BookServiceImpl implements BookService{
 
         return bookRepository.findAll(Example.of(probe, matcher));
     }
-
-
 }

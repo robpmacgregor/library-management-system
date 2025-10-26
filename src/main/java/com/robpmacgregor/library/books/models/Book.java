@@ -1,11 +1,9 @@
 package com.robpmacgregor.library.books.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -20,6 +18,9 @@ public class Book {
     private String genre;
     private String category;
     private String synopsis;
+
+    @OneToMany(mappedBy = "book")
+    private List<InventoryItem> inventoryItems;
 
     public Book() {}
 
